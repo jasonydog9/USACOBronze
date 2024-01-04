@@ -6,7 +6,7 @@ import java.util.*;
 
 public class blockgame {
 	public static void main(String[] args) throws IOException {
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(new File("blocks.in"));
 		PrintWriter pw = new PrintWriter(new File("blocks.out"));
 		int N = sc.nextInt();
 		String[][] array = new String[N][2];
@@ -21,7 +21,7 @@ public class blockgame {
 			int count = 0;
 			for (int j = 0; j < array.length; j++)
 			{
-				int max = Math.max(Main.count(array[j][0], (char) (i + 97)), Main.count(array[j][1], (char) (i + 97)));
+				int max = Math.max(blockgame.count(array[j][0], (char) (i + 97)), blockgame.count(array[j][1], (char) (i + 97)));
 				count += max;
 			}
 			finalArray[i] = count;
@@ -29,8 +29,9 @@ public class blockgame {
 
 		for (int i = 0; i < finalArray.length; i++)
 		{
-			System.out.println(finalArray[i]);
+			pw.println(finalArray[i]);
 		}
+		pw.close();
 	}
 
 	public static int count(String s, char letter)

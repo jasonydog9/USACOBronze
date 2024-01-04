@@ -6,7 +6,7 @@ import java.util.*;
 
 public class cowgymnastics {
 	public static void main(String[] args) throws IOException {
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(new File("gymnastics.in"));
 		PrintWriter pw = new PrintWriter(new File("gymnastics.out"));
 		int K = sc.nextInt();
 		int N = sc.nextInt();
@@ -47,7 +47,7 @@ public class cowgymnastics {
 			if (curr == K - 1)
 				count++;
 		}
-		System.out.println(count);
+		pw.println(count);
 		pw.close();
 	}
 }
